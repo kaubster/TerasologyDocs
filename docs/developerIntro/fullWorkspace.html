@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>developerIntro/fullWorkspace · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Full Workspace Setup"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="developerIntro/fullWorkspace · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Full Workspace Setup"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">developerIntro/fullWorkspace</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="full-workspace-setup"></a><a href="#full-workspace-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Full Workspace Setup</h1>
+<p>The engine repository at <a href="https://github.com/MovingBlocks/Terasology">https://github.com/MovingBlocks/Terasology</a> is
+the heart and central workspace of mostly everything Terasology.</p>
+<p>To set up the workspace is a fairly easy process:</p>
+<ul>
+<li>Git clone or download a source zip from GitHub to some location on
+your computer
+<ul>
+<li>See GitHub or Google for various Git tutorials. In short you'd
+clone with
+<code>git clone https://github.com/MovingBlocks/Terasology.git</code> into
+a local workspace directory</li>
+</ul></li>
+<li>Run <code>gradlew</code> once in the root of the chosen directory via command
+prompt / terminal</li>
+</ul>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>In OSX, the command is <code>./gradlew</code> instand of <code>gradlew</code>
+:::</p>
+<p>That's it, really! You now should have a functioning game workspace.</p>
+<h2><a class="anchor" aria-hidden="true" id="requirements"></a><a href="#requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements</h2>
+<p>Okay, you might want a little more than that. The only mandatory
+requirement is a Java 8 SDK which you either download from
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Oracle</a>
+or get via <a href="http://openjdk.java.net">OpenJDK</a>.</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>Using OpenJDK has a slightly higher risk for encountering
+<code>Common Issues &lt;common_issues&gt;</code>{.interpreted-text role=&quot;ref&quot;} - for
+instance the
+<a href="https://github.com/MovingBlocks/TerasologyLauncher">Launcher</a> requires
+JavaFX which isn't always bundled with OpenJDK.
+:::</p>
+<p>Beyond that you might want an IDE and some IDE plugins, see
+<code>Setup in IntelliJ &lt;ide_intellij&gt;</code>{.interpreted-text role=&quot;ref&quot;} or
+<code>Setup in Eclipse &lt;ide_eclipse&gt;</code>{.interpreted-text role=&quot;ref&quot;}. Maybe
+even a tool like <a href="https://www.yourkit.com">YourKit</a> to help profile game
+performance. But everything else really is optional!</p>
+<p>Most our automation and project setup happens through
+<a href="http://gradle.org">Gradle</a> which the <code>gradlew</code> script downloads a
+version of if needed. The initial <code>gradlew</code> execution will download all
+project dependencies (Maven style - downloading half the internet). Just
+give it a while. Read more on
+<code>Codebase Structure &lt;codebase_structure&gt;</code>{.interpreted-text role=&quot;ref&quot;}
+if interested.</p>
+<h2><a class="anchor" aria-hidden="true" id="run-game-from-source"></a><a href="#run-game-from-source" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Run game from source</h2>
+<p>As long as you have the code and Java 8 you can run the game from source
+simply with <code>gradlew game</code></p>
+<p>Any problem encountered at this point is usually from Java not being
+configured right, such as having an older version as your default Java.
+See <code>Common Issues &lt;common_issues&gt;</code>{.interpreted-text role=&quot;ref&quot;} for
+more.</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>If the game itself behaves funny or crashes see if the <a href="https://github.com/MovingBlocks/Terasology/releases">normal release
+download</a> works. If
+not check the <strong>Minimum Requirements</strong><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> and make sure your graphics
+card driver is up to date.</p>
+<p>Ask in the <a href="http://forum.terasology.org/forum/support.20">Support Forum</a>
+if issues remain, or come join us on <code>#terasology</code> on Freenode IRC. See
+<code>Using IRC &lt;using_irc&gt;</code>{.interpreted-text role=&quot;ref&quot;} and please be
+patient :-) IRC isn't necessarily instant communication and it may take
+a while to get a reply.
+:::</p>
+<p>You can also run a headless server from source using <code>gradlew server</code> -
+just run it in a second command prompt / terminal as it'll not accept
+further input (other than <code>CTRL-C</code> to break the process)</p>
+<h2><a class="anchor" aria-hidden="true" id="intellij-ide_intellij"></a><a href="#intellij-ide_intellij" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IntelliJ {#ide_intellij}</h2>
+<p>Running from command line is good and fine and some enjoy simply working
+in a plain text editor. For those preferring a full integrated
+development environment (IDE) we recommend
+<a href="https://www.jetbrains.com/idea/download">IntelliJ</a></p>
+<p>We have a series of customizations that prepare run configurations, Git
+integration, and so on for the project, specifically for IntelliJ.
+Eclipse has fewer of these but is still entirely usable, as is NetBeans,
+but you'll need to figure out some details there yourself.</p>
+<p>To prepare project files for IntelliJ simply run <code>gradlew idea</code> which as
+any <code>gradlew</code> also does the initial dependency fetch so you can go
+straight from source download to <code>gradlew idea</code> you don't need a
+separate plain <code>gradlew</code> step.</p>
+<p>Open the resulting <code>Terasology.ipr</code> as an existing project in IntelliJ</p>
+<p>The opened project should leave you with a series of run configurations
+to execute the game (and server) in various formats. It'll hook up our
+license header as a template, configure code analytics, and so on.</p>
+<p>Here is a video introducing downloading project from GitHub, runing the
+game from sources and openning the source with IntelliJ:</p>
+<p>::: {.youtube}
+<a href="https://www.youtube.com/watch?v=cCMQ5VaKnfw">https://www.youtube.com/watch?v=cCMQ5VaKnfw</a>
+:::</p>
+<p>|</p>
+<h2><a class="anchor" aria-hidden="true" id="eclipse-ide_eclipse"></a><a href="#eclipse-ide_eclipse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Eclipse {#ide_eclipse}</h2>
+<p>Eclipse can be used with Terasology just like IntelliJ, but needs a
+little more manual setup.</p>
+<p>::: {.todo}
+We have a few more files at <code>config/eclipse</code> that could use some setup
+instructions and/or automated customization like for IntelliJ.
+:::</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>All of the settings described below can be applied to a specific Eclipse
+project or to an entire workspace.</p>
+<ul>
+<li><p>To apply the settings on a per-project basis, right-click on a
+project in the <strong>Package Explorer</strong> and select <strong>Properties</strong>.
+(Alternatively, select the project and press Alt+Enter) After
+navigating to a relevant section of the Preferences menu, check
+<strong>Enable project-specific settings</strong>. Repeat this for all the
+projects you'd like to work on.</p></li>
+<li><p>To apply the settings globally, select <strong>Window → Preferences</strong> from
+the main menu and navigate to a relevant section.
+:::</p></li>
+<li><p>Formatting Convention Setup: In <strong>Java Code Style → Formatter</strong>,
+click <strong>Import</strong> and import Terasology's formatting settings file
+(<a href="https://github.com/MovingBlocks/Terasology/blob/develop/config/eclipse/formatting.xml">Terasology/config/eclipse/formatting.xml</a>).
+The <strong>Terasology formatting conventions</strong> profile should be
+automatically selected.</p></li>
+</ul>
+<p><img src="img/EclipseFormatterSettings.png" alt="image"></p>
+<ul>
+<li>Import Order Setup: In <strong>Java Code Style → Organize Imports</strong>, click
+Import and import Terasology's import order file
+(<a href="https://github.com/MovingBlocks/Terasology/blob/develop/config/eclipse/.importorder">Terasology/config/eclipse/.importorder</a>).</li>
+</ul>
+<p><img src="img/EclipseImports1.png" alt="image"></p>
+<ul>
+<li><strong>Optional, but recommended</strong>: Switch to <strong>Window → Preferences →
+Editor → Save Actions</strong>. Check <strong>Perform the selected actions on
+save</strong> and <strong>Organize imports</strong>.</li>
+</ul>
+<p><img src="img/EclipseImports2.png" alt="image"></p>
+<p>Here is a video introducing setting up Terasology with Eclipse:</p>
+<p>::: {.youtube}
+<a href="https://www.youtube.com/watch?v=WMqGx9f28uM">https://www.youtube.com/watch?v=WMqGx9f28uM</a>
+:::</p>
+<p>|</p>
+<h2><a class="anchor" aria-hidden="true" id="git"></a><a href="#git" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Git</h2>
+<p>Git will be enabled as source control, however going deeper into the
+details of using Git is outside the scope of this wiki. Please <a href="https://help.github.com/articles/good-resources-for-learning-git-and-github">see the
+excellent resources on GitHub for
+more</a>
+like their <a href="https://help.github.com/categories/bootcamp">bootcamp</a>
+series.</p>
+<p>::: {.seealso}</p>
+<ul>
+<li><code>Module concept &lt;concept_modules&gt;</code>{.interpreted-text role=&quot;ref&quot;} and
+<code>Developing modules &lt;developing_modules&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} - if the engine is the heart of Terasology modules make
+up everything else. Learn about them here.</li>
+<li><code>Contributing &lt;contributing&gt;</code>{.interpreted-text role=&quot;ref&quot;} -
+understand how to work on the GitHub (fork code repositories on
+GitHub,interact with several at once, etc).
+:::</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1"  class="footnote-item"><p>TODO: <a href="https://github.com/MovingBlocks/Terasology/issues/1123">https://github.com/MovingBlocks/Terasology/issues/1123</a> <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#requirements">Requirements</a></li><li><a href="#run-game-from-source">Run game from source</a></li><li><a href="#intellij-ide_intellij">IntelliJ {#ide_intellij}</a></li><li><a href="#eclipse-ide_eclipse">Eclipse {#ide_eclipse}</a></li><li><a href="#git">Git</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

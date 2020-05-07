@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>developerIntro/commonIssues · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Common Issues {#common_issues}"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="developerIntro/commonIssues · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Common Issues {#common_issues}"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">developerIntro/commonIssues</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="common-issues-common_issues"></a><a href="#common-issues-common_issues" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Issues {#common_issues}</h1>
+<p>Not everything succeeds on the first try. When that happens check this
+page to see if we've covered it. The main wiki pages try to be brief
+and avoid most troubleshooting.</p>
+<p>If you encounter an issue not mentioned below try to check Google real
+quick, then consider asking in our <a href="http://forum.terasology.org/forum/support.20">Support
+Forum</a> or on <code>#terasology</code>
+on Freenode IRC. Please read <code>Using IRC &lt;using_irc&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} for more and be patient as it can take a while to get a
+reply :-)</p>
+<h2><a class="anchor" aria-hidden="true" id="game"></a><a href="#game" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Game</h2>
+<ul>
+<li>The most common cause for game crashes is older video cards,
+<strong>especially</strong> Intel HD Graphics on laptops. Make sure you have the
+very latest graphics drivers available.</li>
+<li>If you're using a laptop that has a discrete NVIDIA GPU and Intel
+HD Graphics, the game may be attempting to run on the latter,
+causing a crash. To make the game use the discrete GPU,
+<ul>
+<li>Right-click on your desktop, select NVIDIA Control Panel. If the
+option doesn't show up, <a href="http://www.geforce.com/drivers">install the latest NVIDIA
+drivers</a>.</li>
+<li>Select <em>Manage 3D settings</em>.</li>
+<li>Select <em>Program Settings</em>, then navigate to wherever the
+Terasology executive file is located and select it.</li>
+<li>In the processor selection dropdown, choose <strong>High-performance
+NVIDIA processor</strong> and click Apply.</li>
+</ul></li>
+<li>You may run out of memory if your system doesn't have much
+available or you run the game with too little memory assigned and
+too high view distance. Especially with a 32-bit system or Java (has
+failed on even taking large screenshots in the past)
+<ul>
+<li>To run with increased memory you can launch via command prompt /
+terminal with something like:
+<code>java -Xms128m -Xmx2048m -jar libs/Terasology.jar</code> which will
+assign a max of 2 GB (but crash with a 32-bit Java! Can't
+assign more than around 1.5 GB)</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="intellij"></a><a href="#intellij" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IntelliJ</h2>
+<ul>
+<li>Be sure to open an existing project and use project files generated
+with <code>gradlew idea</code> - importing via Gradle or other options can
+leave you with broken project config at worst and missing a bunch of
+utility at least.</li>
+<li>For a first time install of IntelliJ you may not have a defined JDK
+available at a platform level. Look at <strong>File -&gt; Project Structure
+-&gt; SDKs</strong> and use the green + if needed to point to a local JDK 8.
+If not you may get errors about basic Java language features missing
+<ul>
+<li>After setting this up or if you name your JDK 8 something other
+than the default &quot;1.8&quot; you may have to set that to the Project
+SDK, again on the Project Structure page</li>
+</ul></li>
+<li>Any time you change the overall project structure by adding/deleting
+modules or pull updates from elsewhere that contain library changes
+you may have to run <code>gradlew idea</code> again to refresh your project
+config and get new dependencies.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="java"></a><a href="#java" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Java</h2>
+<ul>
+<li>It can be tricky to make sure the right version of Java is being
+used in different situations (within an IDE, via command line, on a
+server ..) - check the following options if needed:
+<ul>
+<li>System <code>JAVA_HOME</code> environment variable</li>
+<li>System [PATH]{.title-ref} environment variable</li>
+<li>The <code>update-alternatives</code> or <code>update-java-alternatives</code> commands
+available on some Linux systems can override what's set via
+<code>JAVA_HOME</code>. See <a href="http://askubuntu.com/questions/159575/how-do-i-make-java-default-to-a-manually-installed-jre-jdk">this Ask Ubuntu
+thread</a>
+or check Google.</li>
+</ul></li>
+<li>The Java installation picker (which download you get from
+<a href="https://www.java.com/en/download">https://www.java.com/en/download</a>) may give you a 32-bit installer
+if you're using a 32-bit browser on a 64-bit system. Use 64-bit if
+you can!
+<ul>
+<li>Use <code>java -version</code> to find out what you have. This in turn may
+also depend on your OS. For instance, Windows may default a
+command prompt to <code>C:\Windows\System32</code> which will give you bad
+info. Try from <code>C:\</code> or anywhere else instead.</li>
+<li>The 64-bit version explicitly states it is 64-bit (like
+<code>64-Bit Server VM</code>) where 32-bit may call itself something like
+<code>Client VM</code></li>
+</ul></li>
+<li>If you do development and have something like Android Studio
+installed you may have had your system classpath modified. This can
+cause trouble if a system version of some Java dependency gets used
+in favor of a version we bundle.
+<ul>
+<li>Example: If you get an error like <strong>Caused by:
+java.lang.UnsatisfiedLinkError: Can't obtain static method
+fromNative(Method, Object) from class com.sun.jna.Native</strong> then
+try running the game with
+<code>java -Djna.nosys=true -jar libs/Terasology.jar -homedir</code> to
+ignore the system-provided version of JNA</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="linux"></a><a href="#linux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Linux</h2>
+<ul>
+<li>Watch out for line-ending issues. For instance, the <code>gradlew</code> script
+might throw an error like <strong>bash: ./gradlew: /bin/bash^M: bad
+interpreter: No such file or directory</strong> if it somehow ends up with
+Windows-style line endings.</li>
+<li>If having issues with SSL when using <code>gradlew</code>, run
+<code>update-ca-certificates -f</code> as root (or using <code>sudo</code>).</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="archgentoo-random-problems"></a><a href="#archgentoo-random-problems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Arch/Gentoo random problems</h2>
+<p>Both Arch and Gentoo do not include java jfx (needed for the launcher)
+by default when installing java.</p>
+<p>On Arch you need to install the <code>java-openjfx</code> package, and on Gentoo
+you need to use the <code>javafx</code> USE flag when compiling java.</p>
+<p>xrandr is a generic linux dependency for terasology, but the cases where
+you have it uninstalled usually only happen on arch and gentoo.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#game">Game</a></li><li><a href="#intellij">IntelliJ</a></li><li><a href="#java">Java</a></li><li><a href="#linux">Linux</a></li><li><a href="#archgentoo-random-problems">Arch/Gentoo random problems</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

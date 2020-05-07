@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>workflow/documentationJavaDoc · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Documentation (JavaDoc)"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="workflow/documentationJavaDoc · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Documentation (JavaDoc)"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">workflow/documentationJavaDoc</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="documentation-javadoc"></a><a href="#documentation-javadoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Documentation (JavaDoc)</h1>
+<p>Our Javadoc guidelines are loosely based on <a href="http://blog.joda.org/2012/11/javadoc-coding-standards.html">Stephen Colebourne's blog
+article on Javadoc coding
+standards</a>
+and <a href="http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html">Oracle's guide on writing
+Javadoc</a>.
+Note that these guidelines merely specify the layout and formatting of
+the documentation but not its content.</p>
+<h2><a class="anchor" aria-hidden="true" id="general-formatting"></a><a href="#general-formatting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>General Formatting</h2>
+<p>A Javadoc comment is written in HTML and can therefore use common HTML
+tags. A JavaDoc comment is made up of two parts, the description
+followed by block tags. Keep in mind that Javadoc is often read in it's
+source form, so it should be easy to read and understand without the
+generated web frontend.</p>
+<h2><a class="anchor" aria-hidden="true" id="first-sentence"></a><a href="#first-sentence" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>First Sentence</h2>
+<p>Write the first sentence as a short summary of the method, as Javadoc
+automatically places it in the method summary table (and index). This
+first sentence, typically ended by a dot, is used in the next-level
+higher Javadoc. As such, it has the responsibility of summing up the
+method or class to readers scanning the class or package. To achieve
+this, the first sentence should be clear and punchy, and generally
+short.</p>
+<p>While not required, it is recommended that the first sentence is a
+paragraph to itself. This helps retain the punchiness for readers of the
+source code.</p>
+<p>It is recommended to use the third person form at the start. For
+example, &quot;Gets the foo&quot;, &quot;Sets the &quot;bar&quot; or &quot;Consumes the baz&quot;.
+Avoid the second person form, such as &quot;Get the foo&quot;.</p>
+<h2><a class="anchor" aria-hidden="true" id="html-tags"></a><a href="#html-tags" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTML Tags</h2>
+<p>As a rule-of-thumb use the <a href="http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html#format">standard format for doc
+comments</a>
+with plain HTML tags (no XHTML). For longer doc comments use <code>&lt;p&gt;</code> to
+separate different paragraphs. Note that you are not allowed to use
+self-closing tags, e.g., <code>&lt;/p&gt;</code>. Place a single <code>&lt;p&gt;</code> tag on the blank
+line between paragraphs:</p>
+<pre><code class="hljs css language-{.java}">/**
+<span class="hljs-bullet"> * </span>First paragraph.
+<span class="hljs-bullet"> * </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span>
+<span class="hljs-bullet"> * </span>Second paragraph.
+<span class="hljs-bullet"> * </span>May be on multiple lines.
+<span class="hljs-bullet"> * </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span>
+<span class="hljs-bullet"> * </span>Third paragraph.
+ */
+public ...
+</code></pre>
+<p>Lists are useful in Javadoc when explaining a set of options, choices or
+issues. These standards place a single <code>&lt;li&gt;</code> tag at the start of the
+line and no closing tag. In order to get correct paragraph formatting,
+extra paragraph tags are required:</p>
+<h2><a class="anchor" aria-hidden="true" id="block-tags"></a><a href="#block-tags" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Block Tags</h2>
+<h3><a class="anchor" aria-hidden="true" id="code-and-link"></a><a href="#code-and-link" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@code and @link</h3>
+<p>Many Javadoc descriptions reference other methods and classes. This can
+be achieved most effectively using the @link and @code features.</p>
+<p>The @link feature creates a visible hyperlink in generated Javadoc to
+the target. The @link target is one of the following forms:</p>
+<pre><code class="hljs css language-{.java}">/**
+ * First <span class="hljs-built_in">paragraph</span>.
+ * &lt;p&gt;
+ * Link <span class="hljs-keyword">to</span> a <span class="hljs-built_in">class</span> named 'Foo': {@link Foo}.
+ * Link <span class="hljs-keyword">to</span> a method 'bar' <span class="hljs-keyword">on</span> a <span class="hljs-built_in">class</span> named 'Foo': {@link Foo<span class="hljs-comment">#bar}.</span>
+ * Link <span class="hljs-keyword">to</span> a method 'baz' <span class="hljs-keyword">on</span> this <span class="hljs-built_in">class</span>: {@link <span class="hljs-comment">#baz}.</span>
+ * Link specifying <span class="hljs-built_in">text</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> hyperlink <span class="hljs-keyword">after</span> a <span class="hljs-literal">space</span>: {@link Foo <span class="hljs-keyword">the</span> Foo <span class="hljs-built_in">class</span>}.
+ * Link <span class="hljs-keyword">to</span> a method handling method overload {@link Foo<span class="hljs-comment">#bar(String,int)}.</span>
+ */
+public ...
+</code></pre>
+<p>The @code feature provides a section of fixed-width font, ideal for
+references to methods and class names. While @link references are
+checked by the Javadoc compiler, @code references are not.</p>
+<p>Only use @link on the first reference to a specific class or method.
+Use @code for subsequent references. This avoids excessive hyperlinks
+cluttering up the Javadoc.</p>
+<p>Do not use @link in the punch line. The first sentence is used in the
+higher level Javadoc. Adding a hyperlink in that first sentence makes
+the higher level documentation more confusing. Always use @code in the
+first sentence if necessary. @link can be used from the second
+sentence/paragraph onwards.</p>
+<p>Do not use @code for null, true or false. The concepts of null, true
+and false are very common in Javadoc. Adding @code for every occurrence
+is a burden to both the reader and writer of the Javadoc and adds no
+real value.</p>
+<h3><a class="anchor" aria-hidden="true" id="param-return-and-throws"></a><a href="#param-return-and-throws" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@param, @return, and @throws</h3>
+<p>Almost all methods take in a parameter, return a result or both. The
+@param and @return features specify those inputs and outputs. The
+@throws feature specifies the thrown exceptions. The @param entries
+should be specified in the same order as the parameters. The @return
+should be after the @param entries, followed by @throws.</p>
+<p>Use @param for generics. If a class or method has generic type
+parameters, then these should be documented. The correct approach is an
+@param tag with the parameter name of where T is the type parameter
+name.</p>
+<p>Use one blank line before @param. There should be one blank line
+between the Javadoc text and the first @param or @return. This aids
+readability in source code.</p>
+<p>The @param and @return should be treated as phrases rather than
+complete sentences. They should start with a lower case letter,
+typically using the word &quot;the&quot;. They should not end with a dot. This
+aids readability in source code and when generated.</p>
+<p>Treat @throws as an if clause. The @throws feature should normally be
+followed by &quot;if&quot; and the rest of the phrase describing the condition.
+For example, &quot;@throws if the file could not be found&quot;. This aids
+readability in source code and when generated.</p>
+<h3><a class="anchor" aria-hidden="true" id="author"></a><a href="#author" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>@author</h3>
+<p>By convention we avoid the @author tag. It'll generally go out of
+date, and can promote code ownership by an individual. The version
+control system is in a much better position to record authors.</p>
+<h2><a class="anchor" aria-hidden="true" id="what-to-document"></a><a href="#what-to-document" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What to Document</h2>
+<p>As the documentation is intended to be used by other developers, it is
+important to document <em>what</em> a piece of code does. Everyone can read the
+code and understand <em>how</em> it works but it should not be necessary to
+read 5-15 lines only to understand the basic usage of a method.
+Therefore, everything which is not intuitive by the name of the method
+and parameters should be documented.</p>
+<h3><a class="anchor" aria-hidden="true" id="public-and-protected"></a><a href="#public-and-protected" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Public and Protected</h3>
+<p>All public and protected methods should be fully defined with Javadoc.
+Especially complex methods, procedures with side-effects, and
+non-trivial operations should be documented well. Package and private
+methods do not have to be, but may benefit from it. Trivial getters and
+setters can be omitted.</p>
+<h3><a class="anchor" aria-hidden="true" id="null-tolerance-pre--and-postconditions"></a><a href="#null-tolerance-pre--and-postconditions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>null-tolerance, Pre- and Postconditions</h3>
+<p>Whether a method accepts null on input, or can return null is critical
+information for building large systems. All non-primitive methods should
+define their null-tolerance in the @param or @return. Some standard
+forms expressing this should be used wherever possible:</p>
+<ul>
+<li>&quot;not null&quot; means that null is not accepted and passing in null
+will probably throw an exception, typically NullPointerException.</li>
+<li>&quot;may be null&quot; means that null may be passed in. In general the
+behaviour of the passed in null should be defined.</li>
+<li>&quot;null treated as xxx&quot; means that a null input is equivalent to the
+specified value.</li>
+<li>&quot;null returns xxx&quot; means that a null input always returns the
+specified value.</li>
+</ul>
+<p>When defined in this way, there should not be an @throws for
+NullPointerException.</p>
+<pre><code class="hljs css language-{.java}">/**
+ * <span class="hljs-type">Javadoc</span> text.
+ * 
+ * @param foo  the foo parameter, <span class="hljs-keyword">not</span> null
+ * @param bar  the bar parameter, null returns null
+ * @<span class="hljs-keyword">return</span> the baz content, null <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> processed
+ */
+public <span class="hljs-type">String</span> process(<span class="hljs-type">String</span> foo, <span class="hljs-type">String</span> bar) <span class="hljs-meta">{...}</span>
+</code></pre>
+<p>While it may be tempting to define null-handling behavior in a single
+central location, such as the class or package Javadoc, this is far less
+useful for developers. The Javadoc at the method level appears in IDEs
+during normal coding, whereas class or package level Javadoc requires a
+separate &quot;search and learn&quot; step.</p>
+<p>Other simple constraints may be added as well if applicable, for example
+&quot;not empty, not null&quot;. Primitive values might specify their bounds,
+for example &quot;from 1 to 5&quot;, or &quot;not negative&quot;.</p>
+<h2><a class="anchor" aria-hidden="true" id="generate-html-javadoc"></a><a href="#generate-html-javadoc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generate HTML JavaDoc</h2>
+<p>To generate the JavaDoc HTML-pages for the project simply execute
+<code>gradle javadoc</code> at the root of the project. The actual <code>build.gradle</code>
+doesn't need to have any related scripting in it, the Javadoc Gradle
+plugin does it all!</p>
+<p>The rendered HTML for the engine project will be contained in
+<code>engine/build/docs/javadoc</code> and respective
+<code>modules/&lt;module&gt;/build/docs/javadoc</code> for modules..</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#general-formatting">General Formatting</a></li><li><a href="#first-sentence">First Sentence</a></li><li><a href="#html-tags">HTML Tags</a></li><li><a href="#block-tags">Block Tags</a><ul class="toc-headings"><li><a href="#code-and-link">@code and @link</a></li><li><a href="#param-return-and-throws">@param, @return, and @throws</a></li><li><a href="#author">@author</a></li></ul></li><li><a href="#what-to-document">What to Document</a><ul class="toc-headings"><li><a href="#public-and-protected">Public and Protected</a></li><li><a href="#null-tolerance-pre--and-postconditions">null-tolerance, Pre- and Postconditions</a></li></ul></li><li><a href="#generate-html-javadoc">Generate HTML JavaDoc</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

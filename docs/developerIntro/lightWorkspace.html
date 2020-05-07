@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>developerIntro/lightWorkspace · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Light Workspace Setup {#light_workspace_setup}"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="developerIntro/lightWorkspace · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Light Workspace Setup {#light_workspace_setup}"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">developerIntro/lightWorkspace</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="light-workspace-setup-light_workspace_setup"></a><a href="#light-workspace-setup-light_workspace_setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Light Workspace Setup {#light_workspace_setup}</h1>
+<p>Every day, bit by bit, Terasology is growing. From the smallest of jobs
+like adding readmes to slightly larger jobs like adding code, people
+from all around the world wish to contribute to the project. However,
+for many the process is far more complex than required. For instance,
+one doesn't need to clone a complete Git-linked repository to one's
+system just to edit a readme. This guide will guide you through setting
+up a light environment so that you can do these relatively small tasks
+without much tedium.</p>
+<h2><a class="anchor" aria-hidden="true" id="using-the-github-web-interface"></a><a href="#using-the-github-web-interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the GitHub Web Interface</h2>
+<p>GitHub's web interface is great for tasks involving small edits to code
+or edits to text files (like readmes) or wikis. It allows the user to
+edit and commit right from the browser window.</p>
+<h3><a class="anchor" aria-hidden="true" id="creating-a-fork"></a><a href="#creating-a-fork" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a Fork</h3>
+<p>To create a fork of Terasology, visit <a href="https://github.com/MovingBlocks/Terasology">Terasology's GitHub
+repository</a> and click the
+&quot;Fork&quot; button near the top right corner of the screen. This will
+create a fork of the repository in your GitHub account.</p>
+<p><img src="img/Fork.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="creating-and-deleting-branches"></a><a href="#creating-and-deleting-branches" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating and Deleting Branches</h3>
+<p>Since you are going to be making changes, it might be a good idea to
+create a branch before. You can create a branch by clicking on the
+repository's branch selector and typing in the name of the branch. If
+the branch doesn't exist, GitHub will offer to create it for you.</p>
+<p>You can go to the <strong>Branches</strong> page of your repository by clicking on
+the number of branches displayed on the home page of the repository.
+This will take you to an overview of all your branches. From here, you
+can delete branches by clicking the little red trash can icons.</p>
+<p><img src="img/Branch1.png" alt="image"></p>
+<p><img src="img/Branch2.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="editing"></a><a href="#editing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editing</h3>
+<h4><a class="anchor" aria-hidden="true" id="creating-a-file"></a><a href="#creating-a-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a File</h4>
+<ol>
+<li>Navigate to the main page of your repository.</li>
+<li>Browse to the folder where you want to create a file.</li>
+<li>Click the <strong>Create new file</strong> button above the file list.</li>
+<li>Type the name and extension of the file you want to create in the
+name field. You may also create subdirectories here by using the <code>/</code>
+directory separator.</li>
+<li>Add contents to the file in the <strong>Edit new file</strong> tab. You may
+preview your file while editing using the <strong>Preview</strong> tab.</li>
+<li>At the bottom of the page, type a commit message, choose the branch
+you want to commit to, and then click the <strong>Commit New File</strong>
+button.</li>
+</ol>
+<p><img src="img/Create.png" alt="image"></p>
+<h4><a class="anchor" aria-hidden="true" id="editing-renaming-or-moving-files"></a><a href="#editing-renaming-or-moving-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editing, Renaming or Moving Files</h4>
+<ol>
+<li>Browse to the file you want to make changes to.</li>
+<li>In the upper right hand corner, click the little pencil icon to open
+the editor.</li>
+<li>You can change the name of the file at the top of the page. You can
+also move the file by using the <code>/</code> separator to make/access
+subdirectories (use <code>..</code> to go to the parent directory).</li>
+<li>Make the changes you want to make in the <strong>Edit</strong> tab. You may
+preview the changes using the <strong>Preview</strong> tab.</li>
+<li>Scroll to the bottom of the page, type a commit message, choose the
+branch you want to commit to, and click the <strong>Commit Changes</strong>
+button.</li>
+</ol>
+<p><img src="img/Edit1.png" alt="image"></p>
+<p><img src="img/Edit2.png" alt="image"></p>
+<h4><a class="anchor" aria-hidden="true" id="deleting-files"></a><a href="#deleting-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deleting files</h4>
+<ol>
+<li>Browse to the file you want to delete.</li>
+<li>At the top of the file, click the little trashcan icon.</li>
+<li>Scroll to the bottom of the page, type a commit message, choose a
+branch, and commit.</li>
+</ol>
+<p><img src="img/Delete.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="opening-a-pull-request"></a><a href="#opening-a-pull-request" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Opening a Pull Request</h3>
+<ol>
+<li>Navigate to the home page of your repository.</li>
+<li>Press the <strong>Pull Request</strong> button at the top of the page.</li>
+<li>Give a title and description to the pull request.</li>
+<li>Press the <strong>Create a pull request</strong> button.</li>
+</ol>
+<p><img src="img/PR.png" alt="image"></p>
+<h2><a class="anchor" aria-hidden="true" id="using-the-github-desktop-client"></a><a href="#using-the-github-desktop-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the GitHub Desktop Client</h2>
+<p>For many changes, especially more elaborate ones, you may prefer
+downloading the repository on your system, making changes, testing them
+and then committing them. This can be achieved by various means, the
+most popular of which is git's command-line interface. However, this
+may be daunting for many users, especially beginners. This is where
+GitHub's desktop client comes in. The GitHub desktop client is an easy
+way to clone and edit repositories on your system. Here are a few tips
+to help you get started.</p>
+<p>Note that to access your environment via the desktop client, you first
+need to fork the <a href="https://github.com/MovingBlocks/Terasology">Terasology
+repository</a> using the
+process mentioned before in this document.</p>
+<h3><a class="anchor" aria-hidden="true" id="setting-up-the-client"></a><a href="#setting-up-the-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting Up the Client</h3>
+<p>The GitHub desktop client can be downloaded from <a href="https://desktop.github.com">the GitHub desktop
+home page</a>. The client is available for
+MacOS and for Windows. Sadly, there is no Linux client yet. On launching
+the client for the first time, you will be asked to enter your GitHub
+account username and password, after which you will be led through a
+short tutorial on the basics of using the client.</p>
+<h3><a class="anchor" aria-hidden="true" id="cloning-your-repository"></a><a href="#cloning-your-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloning Your Repository</h3>
+<ol>
+<li>Launch the client.</li>
+<li>Press the &quot;+&quot; dropdown in the top left corner.</li>
+<li>Go to the <strong>Clone</strong> tab.</li>
+<li>Select the name of the forked repository from the list of all your
+repositories.</li>
+</ol>
+<p><img src="img/Clone.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="creating-a-branch"></a><a href="#creating-a-branch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a Branch</h3>
+<ol>
+<li>Click on the create branch icon.</li>
+<li>Type in a name and select the original branch from which to branch
+off.</li>
+<li>Press the <strong>Create Branch</strong> button.</li>
+</ol>
+<p><img src="img/Branch.png" alt="image"></p>
+<h3><a class="anchor" aria-hidden="true" id="making-changes-and-committing"></a><a href="#making-changes-and-committing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Making Changes and Committing</h3>
+<p>Sadly, the desktop client doesn't support making changes or browsing
+the repo. You will need to browse the repo and make changes using the
+operating system's file explorer and appropriate editing tools on your
+system. To commit, simply select the repository in the tray on the left
+hand side, select which files to commit, type a commit message and
+description and press the <strong>Commit</strong> button. You can push committed
+changes by pressing <code>Control+P</code> (<code>Cmd+P</code> on Mac) or by using the
+<strong>Publish</strong> button at the top right corner of the screen. You can also
+use the toolbar item at Repository -&gt; Push.</p>
+<h3><a class="anchor" aria-hidden="true" id="opening-pull-requests"></a><a href="#opening-pull-requests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Opening Pull Requests</h3>
+<ol>
+<li>Select your repository in the tray at the left.</li>
+<li>Press the <strong>Pull Request</strong> button in the top right corner.</li>
+<li>Provide a title and description.</li>
+<li>Press <strong>Send Pull Request</strong>.</li>
+</ol>
+<p><img src="img/PR_desktop.png" alt="image"></p>
+<p>-- written by Mandar Juvekar</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#using-the-github-web-interface">Using the GitHub Web Interface</a><ul class="toc-headings"><li><a href="#creating-a-fork">Creating a Fork</a></li><li><a href="#creating-and-deleting-branches">Creating and Deleting Branches</a></li><li><a href="#editing">Editing</a></li><li><a href="#opening-a-pull-request">Opening a Pull Request</a></li></ul></li><li><a href="#using-the-github-desktop-client">Using the GitHub Desktop Client</a><ul class="toc-headings"><li><a href="#setting-up-the-client">Setting Up the Client</a></li><li><a href="#cloning-your-repository">Cloning Your Repository</a></li><li><a href="#creating-a-branch">Creating a Branch</a></li><li><a href="#making-changes-and-committing">Making Changes and Committing</a></li><li><a href="#opening-pull-requests">Opening Pull Requests</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

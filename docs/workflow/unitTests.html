@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>workflow/unitTests · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Unit Testing"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="workflow/unitTests · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Unit Testing"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">workflow/unitTests</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="unit-testing"></a><a href="#unit-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unit Testing</h1>
+<h2><a class="anchor" aria-hidden="true" id="why-tests"></a><a href="#why-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why Tests?</h2>
+<p>Most developers spend the majority of their time not writing code, but
+debugging and maintaining it. Unit tests are one of the best ways to
+minimize unnecessary time spent on both. Testing also helps document
+your code. Finally, we use a passing unit test suite as one of the
+criteria for accepting pull requests.</p>
+<h2><a class="anchor" aria-hidden="true" id="testing-libraries"></a><a href="#testing-libraries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Testing Libraries</h2>
+<p>Terasology uses JUnit 4 for its automated test suite. It also uses
+Mockito for mocking/stubbing in special situations for which a
+dependency is too expensive or unreliable to bring into a test suite -
+for example, network activity or OpenGL.</p>
+<p>An IDE is highly encouraged for running tests, as most support JUnit. In
+Eclipse, for example, you can quickly run a single test by
+right-clicking on the test method declaration and selecting Run As →
+JUnit Test. You can give this command a shortcut key of your choice to
+make it even faster.</p>
+<h2><a class="anchor" aria-hidden="true" id="guidelines-for-tests"></a><a href="#guidelines-for-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guidelines for Tests</h2>
+<ol>
+<li>Ideally every line of code is backed up by a unit test. There are
+exceptions like straightforward getters/setters.</li>
+<li>Run the full test suite when pulling changes and before making a
+pull request.</li>
+<li>In the best case, start by <a href="http://en.wikipedia.org/wiki/Test-driven_development">writing your tests
+first</a>.</li>
+<li>Don't overuse mocks, stubs and spy objects. If you find yourself
+using Mockito a lot, consider to refactor the code to be more
+modular.</li>
+<li>Tests for modules should be in the same project at <code>src/test/java</code>.
+Tests for the engine live in a separate project and are located at
+<code>engine-tests/src/test/java</code>.</li>
+</ol>
+<p>JUnit supports nested test classes. Our convention is to use a single
+outer class to test all of the functionality of a given class. Each
+inner class contains all tests for a single method on the object under
+test.</p>
+<p>Example:</p>
+<pre><code class="hljs css language-{.java}">@RunWith(Enclosed.class)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StringTest</span> {</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Equals</span> {</span>
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> <span class="hljs-built_in">string</span>;
+
+        @<span class="hljs-function">Before
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setUp</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-built_in">string</span> = <span class="hljs-string">"Testing"</span>;
+        }
+
+        @<span class="hljs-function">Test
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testEqualStrings</span><span class="hljs-params">()</span> </span>{
+            assertTrue(<span class="hljs-built_in">string</span>.equals(testing));
+        }
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IndexOf</span> {</span>
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> <span class="hljs-built_in">string</span>;
+
+        @<span class="hljs-function">Before
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setUp</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-built_in">string</span> = <span class="hljs-string">"Testing"</span>;
+        }
+
+        @<span class="hljs-function">Test
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testIndexNotFound</span><span class="hljs-params">()</span> </span>{
+            assertEquals(<span class="hljs-number">-1</span>, <span class="hljs-built_in">string</span>.indexOf(<span class="hljs-string">"foobar"</span>));
+        }
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="game-environment-tests"></a><a href="#game-environment-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Game Environment Tests</h2>
+<p>Test classes that require a Terasology environment should extend
+:java<code>TerasologyTestingEnvironment &lt;org.terasology.TerasologyTestingEnvironment&gt;</code>{.interpreted-text
+role=&quot;ref&quot;}, a test class that sets up a headless environment by
+initializing core game systems and providing access to them via the
+context field or the CoreRegistry.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#why-tests">Why Tests?</a></li><li><a href="#testing-libraries">Testing Libraries</a></li><li><a href="#guidelines-for-tests">Guidelines for Tests</a></li><li><a href="#game-environment-tests">Game Environment Tests</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

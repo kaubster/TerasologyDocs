@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>concepts/entitySystem · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Entity System {#entity_System}"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="concepts/entitySystem · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Entity System {#entity_System}"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">concepts/entitySystem</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="entity-system-entity_system"></a><a href="#entity-system-entity_system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Entity System {#entity_System}</h1>
+<p>Terasology's Entity System is the core framework for game logic - most
+everything in the world is an entity. An entity system was chosen as it
+provides a lot of flexibility and support for extension<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>, and
+can quite easily support in-game editors and simple mods without any
+code needing to be written.</p>
+<p>The GUI and blocks are not handled as entities, although some blocks may
+have a related entity.</p>
+<h2><a class="anchor" aria-hidden="true" id="entities-and-components"></a><a href="#entities-and-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Entities and Components</h2>
+<p>The heart of the entity system is a simple data structure composed of
+Entities and Components. Each Entity is a unique object in the world -
+the player is an entity, a single enemy is an entity, a chest is also an
+entity (linked to a block). Entities don't have to be objects that are
+visible in the world either - they can be scoreboards, loot tables, a
+UI, and other gameplay related things.</p>
+<p>An entity on its own isn't really anything, though. For an entity to be
+of use it needs to be given components. Each component is a feature that
+an entity can have: a Location component gives an entity a position in
+the world, a Mesh component gives it appearance, a RigidBody component
+along with a shape component gives it collision, and so forth. Each
+component also can have properties that can be set, that relate the the
+feature it provides - Location component has a position property, Mesh
+component has the mesh to display.</p>
+<p>This structure provides flexibility and reuse when creating entities.
+You can add any of the existing components to make use of their
+features, and concentrate on creating new components for any features
+that don't presently exist - if any.</p>
+<h2><a class="anchor" aria-hidden="true" id="component-systems"></a><a href="#component-systems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Component Systems</h2>
+<p>In Terasology, a component is essentially just a request for an entity
+to be given a feature, and some data that feeds into how that feature
+works. A component itself does not contain any logic for a feature -
+instead that is left to the so called systems.</p>
+<p>A system provides the actual logic behind a component or combination of
+components - it can process them each frame, or respond to events
+dealing with them. Multiple components being involved is common -
+rendering a mesh from a mesh component cannot be done without a location
+from a location component.</p>
+<p>There are a number of advantages to the separation between data (in the
+Components) and logic (in the Systems):</p>
+<ul>
+<li>Allows modules to modify the behaviour of components. If a modder
+doesn't like the default behaviour of the Health component, they
+can replace the Health system with their own version - that will
+still work with all the existing entities with a Health component.</li>
+<li>Allows optimisation of the processing of multiple entities.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="events"></a><a href="#events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Events</h2>
+<p>Terasology also includes an event system built around the entity system.
+Events can be sent to entities, and systems can subscribe to be notified
+about specific events, when they are received by entities with a desired
+combination of components.</p>
+<p>For instance, when an entity is hit by a sword a DamageEvent is sent to
+it. This event includes the amount of damage dealt - it could also
+include information on the type of damage, the source of the damage and
+so forth. The health system would subscribe to the damage event but only
+for entities with a health component. So if the hit entity has a health
+component then the health system would receive the event and can react
+to it by subtracting health - potentially sending another event if the
+entity's health reaches zero.</p>
+<p>This provides two valuable features:</p>
+<ol>
+<li>It provides a mechanism for an entity to react to an event based on
+the components it has. This means that someone can later on create
+their own component and system combination that reacts to Damage
+events differently.</li>
+<li>Because an event can be received by multiple systems, it is possible
+for modders to intercept and modify or cancel an event to change
+behaviour. An armor component could be added that halves all damage,
+and set up to intercept the damage event - without having to change
+the health system at all.</li>
+</ol>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>Have a look at <code>Events &lt;events&gt;</code>{.interpreted-text role=&quot;ref&quot;} for a
+guide how to develop and listen for events.
+:::</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1"  class="footnote-item"><p><a href="http://www.richardlord.net/blog/what-is-an-entity-framework">http://www.richardlord.net/blog/what-is-an-entity-framework</a> <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2"  class="footnote-item"><p><a href="http://www.richardlord.net/blog/why-use-an-entity-framework">http://www.richardlord.net/blog/why-use-an-entity-framework</a> <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn3"  class="footnote-item"><p><a href="http://t-machine.org/index.php/2007/09/03/entity-systems-are-the-future-of-mmog-development-part-1/">http://t-machine.org/index.php/2007/09/03/entity-systems-are-the-future-of-mmog-development-part-1/</a> <a href="#fnref3" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#entities-and-components">Entities and Components</a></li><li><a href="#component-systems">Component Systems</a></li><li><a href="#events">Events</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

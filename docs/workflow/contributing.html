@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>workflow/contributing · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Contributing"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="workflow/contributing · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Contributing"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">workflow/contributing</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="contributing"></a><a href="#contributing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributing</h1>
+<p>After going through the
+<code>first steps &lt;getting_started&gt;</code>{.interpreted-text role=&quot;ref&quot;}, one can
+start with contributing to the actual project or a module.</p>
+<p>There are two ways to submit changes back to GitHub, either gaining
+write (&quot;push&quot;) access to any of the root repositories or by forking
+personal copies of any of them.</p>
+<p>The following examples below are fairly light and expect some minimal
+knowledge of git. You may consider to use a native client like <a href="https://desktop.github.com/">GitHub
+Desktop</a> if available to you. There are
+also plenty of good git tutorials on the web,
+<a href="http://learngitbranching.js.org/">http://learngitbranching.js.org/</a> is only one example to start with.</p>
+<h2><a class="anchor" aria-hidden="true" id="creating-a-fork"></a><a href="#creating-a-fork" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a Fork</h2>
+<p>To get your own personal copy of a repo on GitHub you simply click the
+&quot;Fork&quot; button at the main page of any repo. You'll have full rights
+on the resulting fork.</p>
+<p>You can see how a root repo (in this case MovingBlocks/Terasology) and
+its forks relate by checking the <a href="https://github.com/MovingBlocks/Terasology/network">network
+graph</a>. Each dot is
+a unique commit containing a change, each label is a branch, and each
+section beyond MovingBlocks is somebody's personal fork of
+Terasology's main project repo that contains unique changes. If you
+made a commit in your fork of the Terasology repo it would show up as
+its own dot in your username's section.</p>
+<p>More information about the fork concept is available at
+<a href="https://help.github.com/articles/fork-a-repo/">https://help.github.com/articles/fork-a-repo/</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="updating-a-fork"></a><a href="#updating-a-fork" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updating a Fork</h2>
+<p>After you made a fork, you need to create a second remote reference in
+your local git root. There are better guides to git elsewhere but in
+short:</p>
+<ul>
+<li>If you cloned
+<a href="https://github.com/MovingBlocks/Terasology">MovingBlocks/Terasology</a>
+then that will be your remote named <code>origin</code> but you will not have
+push rights to it. Instead, you have to push your changes to your
+fork and create a pull request from there, as described in the next
+section.</li>
+<li>If you cloned your fork, then that will be your <code>origin</code> remote and
+you can add a second remote to
+<a href="https://github.com/MovingBlocks/Terasology">MovingBlocks/Terasology</a>.
+You could name it <code>movingblocks</code> or <code>upstream</code> and use it to pull
+updates when changes are made.</li>
+</ul>
+<p>Example:</p>
+<p>In the following diagram, our mascot Gooey (GitHub username
+<a href="https://github.com/GooeyHub">GooeyHub</a>) cloned
+<a href="https://github.com/MovingBlocks/Terasology">MovingBlocks/Terasology</a>
+first. After that, Gooey added a remote named <code>gooey</code> pointing to the
+fork repository by using
+<code>git remote add gooey https://github.com/GooeyHub/Terasology</code>.</p>
+<p><img src="img/forks.png" alt="image"></p>
+<p>With two remotes defined, you can now pull and push code between your
+local workspace and GitHub. A regular workflow for the previous example
+could go like:</p>
+<ul>
+<li>Write some code.</li>
+<li>Make a local commit in your <code>develop</code> branch or create a separate
+feature branch for your changes.</li>
+<li>Push your local changes to your fork: <code>git push gooey develop</code>.</li>
+<li>Create a PR (see the next section).</li>
+<li>Wait for it to be accepted, optionally submit more changes (keep
+pushing commits to the same branch on your fork, the PR updates by
+itself).</li>
+<li>After the PR is merged, update your local workspace with
+<code>git pull origin develop</code>.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="creating-a-pull-request-create_pr"></a><a href="#creating-a-pull-request-create_pr" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a Pull Request {#create_pr}</h2>
+<p>When you have suitable changes to be submitted to somebody else's repo
+on GitHub from your fork you can issue a Pull Request (&quot;PR&quot;) to get
+their attention and review for your changes.</p>
+<p>At your repo page, for instance
+<a href="https://github.com/GooeyHub/Terasology">https://github.com/GooeyHub/Terasology</a>, you should see a summary
+comparing your selected branch to the matching branch in the repo you
+forked from, listing outstanding differences if any.</p>
+<p>Simply click the &quot;Pull Request&quot; button to get started. Make sure your
+target (may be called &quot;base fork&quot;) and source (may be called &quot;head
+fork&quot; - your fork) are correct and the changes are what you expect.</p>
+<p>In your description please describe the changes you've made and how to
+test them, along with any particular review notes / justification for
+why you made the change, if needed. Submit the PR then please wait for
+project staff to review your request - could take a little while :-)</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>While normally you would PR a change from one repo (like a fork) to
+another (like the root repo), nothing prevents you from using a PR
+inside a single repo to go from one branch to another. Some stay
+organized and review their code that way.
+:::</p>
+<h2><a class="anchor" aria-hidden="true" id="direct-write-access"></a><a href="#direct-write-access" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Direct Write Access</h2>
+<p>While you can fork module repos we hand out write access to modules
+pretty easily. So long as you've made a good impression, proven
+yourself able to make changes with Git, and have an interest in working
+on a module not actively being worked by somebody else, you're in!</p>
+<p>Multiple people can work directly on a single module repo if they
+coordinate well, but this is where it becomes useful to work via Pull
+Requests.</p>
+<p>To get access, ask in our <a href="http://forum.terasology.org/forum">forum</a> or
+<code>on IRC &lt;using_irc&gt;</code>{.interpreted-text role=&quot;ref&quot;} - and be patient
+please :-)</p>
+<p>Trusted long-term contributors can eventually get these rights to the
+main repos under the <a href="https://github.com/MovingBlocks">MovingBlocks</a>
+organization on GitHub.</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#creating-a-fork">Creating a Fork</a></li><li><a href="#updating-a-fork">Updating a Fork</a></li><li><a href="#creating-a-pull-request-create_pr">Creating a Pull Request {#create_pr}</a></li><li><a href="#direct-write-access">Direct Write Access</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

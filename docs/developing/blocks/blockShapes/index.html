@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>developing/blocks/blockShapes · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Shapes {#block_shapes}"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="developing/blocks/blockShapes · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Shapes {#block_shapes}"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">developing/blocks/blockShapes</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="shapes-block_shapes"></a><a href="#shapes-block_shapes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Shapes {#block_shapes}</h1>
+<p>A block shape defines a way a block can look - its shape. It is
+independent from a block tile/texture. This allows the game engine to
+use new shapes for already defined blocks and tiles and vice versa.
+Shapes are defined under <code>assets/shapes</code> in json format and should have
+a <code>.shape</code> extension.</p>
+<h2><a class="anchor" aria-hidden="true" id="block-shape-basics-block_shape_basics"></a><a href="#block-shape-basics-block_shape_basics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Block Shape Basics {#block_shape_basics}</h2>
+<p>Each shape is composed of up to 7 parts:</p>
+<ul>
+<li>The <strong>center</strong> mesh, which is always rendered if present (visible).
+This is typically used for parts of the block contained within the
+area of the block.</li>
+<li>Six side meshes (<strong>Back</strong>, <strong>Front</strong>, <strong>Top</strong>, <strong>Bottom</strong>,
+<strong>Right</strong>, <strong>Left</strong>)- one for each direction. These are only
+rendered if the side is not obscured.</li>
+</ul>
+<p>Additionally, each side is either a full side or a partial side. A full
+side fills the entire side of the block, and so obscures the sides of
+adjacent blocks. A partial side does not, as adjacent blocks are not
+entirely covered by these sides.</p>
+<p>The image shows an example stair block shape, with each side moved away
+from the center. In the stair block, the back and bottom sides are full
+sides, while the top, front, left and right sides are not.</p>
+<p><img src="img/stair_example.bmp" alt="image"></p>
+<h2><a class="anchor" aria-hidden="true" id="shape-parts-block_shape_parts"></a><a href="#shape-parts-block_shape_parts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Shape Parts {#block_shape_parts}</h2>
+<p>Shape parts define a shape. Each part contain on ore more mesh part
+blocks from the following table.</p>
+<hr>
+<p>Part       Direction</p>
+<hr>
+<p>Center</p>
+<p>Right      X+</p>
+<p>Left       X-</p>
+<p>Top        Y+</p>
+<p>Bottom     Y-</p>
+<p>Back       Z+</p>
+<h2><a class="anchor" aria-hidden="true" id="front------z-"></a><a href="#front------z-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Front      Z-</h2>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>Generally the front of the block is the side you expect to face towards
+the player when they are placing it - the front of stairs, or the lit
+part of a torch.
+:::</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>A standard block is centered on the origin, with each side 0.5 units
+away in the appropriate direction.
+:::</p>
+<p>Each shape part block contains the following components:</p>
+<ul>
+<li>vertices - a list of 3D vectors that make up the mesh part.</li>
+<li>normals - a list of normals corresponding to the vertices.</li>
+<li>texCoords - the texture coordinates corresponding to the vertices.</li>
+<li>faces - one or more lists of indices corresponding to vertices, each
+of which forms a polygon that comporises the mesh part.</li>
+<li>fullSide - a boolean denoting whether a side obscures all adjacent
+sides or not - basically whether it is a square the fills that side
+of the cube. This isn't used by the center mesh part, and if not
+specified defaults to false.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="colliders"></a><a href="#colliders" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Colliders</h2>
+<p>Additionally a Shape may contain a Colliders section, if it wishes to
+have a collision shape other than the full block. Stairs, for instance,
+have two colliders - one for the bottom step and one for the top.</p>
+<h2><a class="anchor" aria-hidden="true" id="shape-example-block_shape_example"></a><a href="#shape-example-block_shape_example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Shape Example {#block_shape_example}</h2>
+<p>A shortened example of the <code>stairs.shape</code>. Note, that it is not
+necessary to create these by hand. Instead there is a workflow to
+<code>create shapes from blender &lt;block_shapes_in_blender&gt;</code>{.interpreted-text
+role=&quot;ref&quot;}</p>
+<pre><code class="hljs css language-{.none}">{
+    <span class="hljs-string">"author"</span>: <span class="hljs-string">"Immortius"</span>,
+    <span class="hljs-string">"exportDate"</span>: <span class="hljs-string">"2012-07-30 21:12:39"</span>,
+    <span class="hljs-string">"displayName"</span>: <span class="hljs-string">"Stairs"</span>,
+    <span class="hljs-string">"center"</span>: {
+        <span class="hljs-string">"vertices"</span>: [[<span class="hljs-number">-0.500000</span>, <span class="hljs-number">0.000000</span>, <span class="hljs-number">-0.000000</span>], ..., [<span class="hljs-number">-0.499999</span>, <span class="hljs-number">0.000000</span>, <span class="hljs-number">-0.500000</span>]],
+        <span class="hljs-string">"normals"</span>: [[<span class="hljs-number">-0.000000</span>, <span class="hljs-number">0.000000</span>, <span class="hljs-number">-1.000000</span>], ..., [<span class="hljs-number">-0.000000</span>, <span class="hljs-number">1.000000</span>, <span class="hljs-number">0.000000</span>]],
+        <span class="hljs-string">"texcoords"</span>: [[<span class="hljs-number">1.000000</span>, <span class="hljs-number">0.500000</span>], ..., [<span class="hljs-number">0.999999</span>, <span class="hljs-number">1.000000</span>]],
+        <span class="hljs-string">"faces"</span>: [
+            [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+            [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>]
+        ],
+        <span class="hljs-string">"fullSide"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-string">"top"</span>: {
+        <span class="hljs-string">"vertices"</span>: [[<span class="hljs-number">0.500000</span>, <span class="hljs-number">0.500000</span>, <span class="hljs-number">0.500000</span>], ..., [<span class="hljs-number">-0.500000</span>, <span class="hljs-number">0.500000</span>, <span class="hljs-number">0.500000</span>]],
+        <span class="hljs-string">"normals"</span>: [[<span class="hljs-number">-0.000000</span>, <span class="hljs-number">0.999969</span>, <span class="hljs-number">0.000000</span>], ..., [<span class="hljs-number">-0.000000</span>, <span class="hljs-number">1.000000</span>, <span class="hljs-number">0.000000</span>]],
+        <span class="hljs-string">"texcoords"</span>: [[<span class="hljs-number">0.000000</span>, <span class="hljs-number">0.000000</span>], ..., [<span class="hljs-number">1.000000</span>, <span class="hljs-number">0.000000</span>]],
+        <span class="hljs-string">"faces"</span>: [
+            [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+        ],
+        <span class="hljs-string">"fullSide"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-string">"bottom"</span>: {
+        ...
+    },
+    <span class="hljs-string">"front"</span>: {
+        ...
+    },
+    <span class="hljs-string">"back"</span>: {
+        ...
+    },
+    <span class="hljs-string">"left"</span>: {
+        ...
+    },
+    <span class="hljs-string">"right"</span>: {
+        <span class="hljs-string">"vertices"</span>: [[<span class="hljs-number">0.500000</span>, <span class="hljs-number">0.000000</span>, <span class="hljs-number">0.000000</span>], ..., [<span class="hljs-number">0.500000</span>, <span class="hljs-number">-0.500000</span>, <span class="hljs-number">0.500000</span>]],
+        <span class="hljs-string">"normals"</span>: [[<span class="hljs-number">1.000000</span>, <span class="hljs-number">0.000000</span>, <span class="hljs-number">0.000000</span>], ..., [<span class="hljs-number">1.000000</span>, <span class="hljs-number">-0.000001</span>, <span class="hljs-number">0.000000</span>]],
+        <span class="hljs-string">"texcoords"</span>: [[<span class="hljs-number">0.500000</span>, <span class="hljs-number">0.500000</span>], ..., [<span class="hljs-number">0.000000</span>, <span class="hljs-number">1.000000</span>]],
+        <span class="hljs-string">"faces"</span>: [
+            [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+            [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+            [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>],
+            [<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>]
+        ],
+        <span class="hljs-string">"fullSide"</span>: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-string">"collision"</span>: {
+        <span class="hljs-string">"colliders"</span>: [
+            {
+                <span class="hljs-string">"type"</span>: <span class="hljs-string">"AABB"</span>,
+                <span class="hljs-string">"position"</span>: [<span class="hljs-number">0.000000</span>, <span class="hljs-number">-0.250000</span>, <span class="hljs-number">-0.250000</span>],
+                <span class="hljs-string">"extents"</span>: [<span class="hljs-number">0.500000</span>, <span class="hljs-number">0.250000</span>, <span class="hljs-number">0.250000</span>]
+            },
+            {
+                <span class="hljs-string">"type"</span>: <span class="hljs-string">"AABB"</span>,
+                <span class="hljs-string">"position"</span>: [<span class="hljs-number">-0.000000</span>, <span class="hljs-number">0.000000</span>, <span class="hljs-number">0.250000</span>],
+                <span class="hljs-string">"extents"</span>: [<span class="hljs-number">0.500000</span>, <span class="hljs-number">0.500000</span>, <span class="hljs-number">0.250000</span>]
+            }
+        ]
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#block-shape-basics-block_shape_basics">Block Shape Basics {#block_shape_basics}</a></li><li><a href="#shape-parts-block_shape_parts">Shape Parts {#block_shape_parts}</a></li><li><a href="#front------z-">Front      Z-</a></li><li><a href="#colliders">Colliders</a></li><li><a href="#shape-example-block_shape_example">Shape Example {#block_shape_example}</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

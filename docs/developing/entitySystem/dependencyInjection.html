@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>developing/entitySystem/dependencyInjection · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Dependency Injection"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="developing/entitySystem/dependencyInjection · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Dependency Injection"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">developing/entitySystem/dependencyInjection</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="dependency-injection"></a><a href="#dependency-injection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dependency Injection</h1>
+<p>A
+:java<code>ComponentSystem &lt;org.terasology.entitySystem.systems.ComponentSystem&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} is not able to do much on its own except
+<code>sending an receiving events &lt;events&gt;</code>{.interpreted-text role=&quot;ref&quot;}. If
+it needs access to further logic, for example to modify blocks, has to
+use additional services from the engine.</p>
+<h2><a class="anchor" aria-hidden="true" id="inject-an-instance"></a><a href="#inject-an-instance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inject an Instance</h2>
+<p>The engine provides a mechanism for field injection to component
+systems. One example to obtain an instance of a
+:java<code>BlockManager &lt;org.terasology.world.block.BlockManager&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} could look like this:</p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-meta">@RegisterSystem</span>(<span class="hljs-type">RegisterMode</span>.<span class="hljs-type">ALWAYS</span>)
+public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySystem</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseComponentSystem</span> </span>{
+
+  <span class="hljs-meta">@In</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-type">BlockManager</span> blockManager;
+}
+</code></pre>
+<p>When a component system is created, all fields marked with the
+:java<code>@In &lt;org.terasology.registry.In&gt;</code>{.interpreted-text role=&quot;ref&quot;}
+annotation will be injected. The fields do not have to be public, it is
+even recommended to mark them as <strong>private</strong>.</p>
+<p>::: {.warning}
+::: {.title}
+Warning
+:::</p>
+<ol>
+<li>Injected fields are <code>null</code> when the class is created, so don't
+access them in the constructor.</li>
+<li>Other systems may not be initialized before
+:java<code>ComponentSystem.initialise() &lt;org.terasology.entitySystem.systems.ComponentSystem.initialise()&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} is called. It is not guaranteed, that other systems are
+already initialized when they are accessed in the <code>initialize()</code>
+method.
+:::</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="share-a-class"></a><a href="#share-a-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Share a Class</h2>
+<p>It is also possible to make own implementations available for dependency
+injection. A system marked with the
+:java<code>@Share &lt;org.terasology.registry.Share&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} annotation is registered to be injected in other classes.</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>It is highly recommended to share an interface instead of the exact
+class.
+:::</p>
+<p>One example to provide a new service:</p>
+<pre><code class="hljs css language-{.java}">public<span class="hljs-built_in"> interface </span>MyService {
+
+    void doSomething();
+}
+</code></pre>
+<p>A component system implements this interface and is marked with the
+<code>@Share</code> annotation, using the interface type as value:</p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-meta">@Share</span>(<span class="hljs-type">MyService</span><span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>
+<span class="hljs-meta">@RegisterSystem</span>(<span class="hljs-type">RegisterMode</span>.<span class="hljs-type">ALWAYS</span>)
+public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyServiceSystem</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseComponentSystem</span> <span class="hljs-title">implements</span> <span class="hljs-title">MyService</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    public void doSomething() {
+        <span class="hljs-comment">//...</span>
+    }
+
+}
+</code></pre>
+<p>When another system wants to access <code>MyService</code>, it can add a field for
+it:</p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-meta">@In</span>
+<span class="hljs-keyword">private</span> MyService myService;
+</code></pre>
+<p>When the systems are initialized, this field will have the instance of
+our <code>MyServiceSystem</code> as value.</p>
+<h2><a class="anchor" aria-hidden="true" id="how-it-works"></a><a href="#how-it-works" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How it works</h2>
+<p>There are two systems to register classes for dependency injection. The
+:java<code>CoreRegistry &lt;org.terasology.registry.CoreRegistry&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} is the older system and provides a static mapping from
+classes to instances, comparable to a singleton pattern.</p>
+<p>The :java<code>Context &lt;org.terasology.context.Context&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} does pretty much the same in a non-static way and should be
+used for every new implementation in the dependency injection layer.</p>
+<p>Logic for the actual dependency injection is available in the
+:java<code>InjectionHelper &lt;org.terasology.registry.InjectionHelper&gt;</code>{.interpreted-text
+role=&quot;ref&quot;}. It provides methods to inject fields in a class from a
+given context or the core registry.</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>Dependency injection is also available in other parts of Terasology than
+only component systems. Other examples may be NUI widgets, World
+Generators and some more.
+:::</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#inject-an-instance">Inject an Instance</a></li><li><a href="#share-a-class">Share a Class</a></li><li><a href="#how-it-works">How it works</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

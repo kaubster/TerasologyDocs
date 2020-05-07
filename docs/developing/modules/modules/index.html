@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>developing/modules/modules · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Modules {#developing_modules}"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="developing/modules/modules · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Modules {#developing_modules}"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">developing/modules/modules</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="modules-developing_modules"></a><a href="#modules-developing_modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modules {#developing_modules}</h1>
+<p>To work with modules you need to either fetch existing ones or create
+new ones. Terasology offers utility tasks in gradle to make this process
+easier. We will use the <code>Sample</code> module from
+<a href="https://github.com/Terasology/Sample">https://github.com/Terasology/Sample</a> for further examples.</p>
+<h2><a class="anchor" aria-hidden="true" id="terasologys-git-setup"></a><a href="#terasologys-git-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Terasology's Git Setup</h2>
+<p>Modules are structured as separate git repositories, nested in the
+engine repository. The main project will contain the engine and
+everything else with modules located at the <code>/modules/*</code> directory.</p>
+<p>These nested git repositories are excluded from tracking in the engine
+git repo, holding the main Terasology project. Therefore modules and the
+engine are treated independently in version control. The following
+diagram explains this concept:</p>
+<p><img src="img/modulesGitConcept.png" alt="image"></p>
+<h2><a class="anchor" aria-hidden="true" id="fetching-existing-modules"></a><a href="#fetching-existing-modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fetching existing Modules</h2>
+<p>Existing modules from the <a href="https://github.com/terasology">Terasology
+organization</a> can be fetched by running</p>
+<p><code>groovyw module get Sample</code> from the root of the Terasology workspace.</p>
+<p>In this example, <code>Sample</code> is the name of the module to fetch. Gradle
+will fetch the existing GitHub repository from
+<a href="https://github.com/Terasology/Sample">https://github.com/Terasology/Sample</a> to your workspace at
+<code>modules/Sample</code>.</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>Casing is important, <code>groovyw module get health</code> will throw an error
+while <code>groovyw module get Health</code> would work
+:::</p>
+<p>To properly adjust your workspace you need to regenerate the additional
+project files via <code>gradlew idea</code>.</p>
+<p>The main difference to a <code>git clone</code> is, that the gradle command will
+include a <code>build.gradle</code> to the module, along with placeholder
+directories for all asset types and such. For modules which are not
+available under the Terasology organization, the repository has to be
+cloned and a <code>build.gradle</code> from another module, e.g. from <em>Core</em> has to
+be copied into the cloned module.</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>Sometimes <code>gradlew idea</code> does not add the module for you. To do this,
+simply activate the <code>&lt;moduleName&gt;.iml</code> file and select
+<code>Import &lt;ModuleName&gt; Module</code>.
+:::</p>
+<h2><a class="anchor" aria-hidden="true" id="create-a-new-module"></a><a href="#create-a-new-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a new Module</h2>
+<p>New modules can be created with a similar command:</p>
+<p><code>groovyw module create MySample</code>.</p>
+<p>This will create a module named <em>MySample</em> at <code>modules/MySample</code>.</p>
+<p>Similar to fetching a module, be sure to adjust your workspace after
+your module lineup has changed. Running <code>gradlew idea</code> from the root
+directory will create the required project files.</p>
+<p>By default, the module will be initialized with an empty git repository.
+Connecting the new module to GitHub can be done in one of two ways,
+either of which needs you to create a new remote reference in the local
+git repository.</p>
+<ol>
+<li>You can create your own module repository on your personal GitHub
+account.</li>
+<li>You can ask the project staff to please create a module repository
+for you under the <a href="https://github.com/terasology">Terasology
+organization</a> and give you access.
+This is also possible later on.</li>
+</ol>
+<p>After you have a module repository on GitHub and still from
+<code>modules/MySample</code>, execute <code>git remote add origin &lt;repository_url&gt;</code>,
+where <code>repository_url</code> is either your personal repository url or the
+official repository url.</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>Of course, you can have a private repository and a link to an official
+repository at the same time, e.g. with <em>origin</em> as name for your private
+repository and <em>terasology</em> as name for the official repository. It is
+up to you, how you finally organize your module setup.
+:::</p>
+<h2><a class="anchor" aria-hidden="true" id="dependency-resolution"></a><a href="#dependency-resolution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dependency Resolution</h2>
+<p>You may end up fetching or creating a module that depends on other
+modules. Again our Gradle setup makes this super easy to handle!</p>
+<p>If you fetch a module <code>X</code> that has a dependency on module <code>Y</code> the next
+execution of any <code>gradlew</code> command will automatically fetch a binary
+copy (typically a <code>.jar</code>-file) of module <code>Y</code> including in turn any of
+its dependencies (a &quot;transitive&quot; dependency).</p>
+<p>Any binary module dependency will be stored both in your local Gradle
+cache as well as in <code>/modules</code> where the game will use it from at
+runtime.</p>
+<p>If you later fetch the source code for module <code>Y</code> it will automatically
+take precedence over any old binary copy of <code>Y</code>.</p>
+<p>You can delete any binary copies of modules at any time then rerun
+<code>gradlew</code> to have them re-fetched.</p>
+<h2><a class="anchor" aria-hidden="true" id="modding-api--sandboxing"></a><a href="#modding-api--sandboxing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modding API &amp; Sandboxing</h2>
+<p>Terasology's engine uses a whitelisting approach to expose API for
+modules using two primary methods and a rarely needed third one:</p>
+<ol>
+<li>Internal classes or packages marked with the <code>@API</code> annotation are
+available to all modules.</li>
+<li>External classes or packages in the basic whitelist at
+<code>org.terasology.engine.module.ExternalApiWhitelist</code> are available to
+all modules.</li>
+<li>Rarely blocks of code in the engine may be hit in a way requiring
+use of <code>AccessController.doPrivileged(...)</code> - usually this is
+nothing module authors have to worry about but once in a while it
+could explain something quirky.</li>
+</ol>
+<p>This API has two bearings: First, it aims to protect the user's system
+from malicious code (for instance the direct use of <code>java.io.File</code> is
+not possible) and second, to better document what is available. If one
+attempts to use a class which is not whitelisted in one of these cases,
+this will result in a log message like:</p>
+<p><code>Denied access to class (not allowed with this module's permissions): some.package.and.class</code>.</p>
+<p>While modules can themselves use the <code>@API</code> annotation to mark
+interesting code for reuse no special security is attached at this point
+beyond the engine. Any module can use anything from any other module it
+declares as a dependency.</p>
+<p>The <code>org.terasology.documentation.ApiScraper</code> class will output a list
+of all <code>@API</code> marked functionality.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<p>For more information of how the module sandbox works, see the <a href="https://github.com/MovingBlocks/gestalt/wiki/Module%20Sandboxing">Gestalt
+Module Sandboxing wiki
+page</a>,
+including how to disable security entirely for prototype work.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1"  class="footnote-item"><p><a href="https://github.com/MovingBlocks/Terasology/issues/1975#issuecomment-180944901">Sample
+output</a>
+of the <code>ApiScraper</code> as of early Feb. 2016. <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2"  class="footnote-item"><p>More annotations like <code>@Command</code> could be added to the API,
+<a href="https://github.com/MovingBlocks/Terasology/issues/2159">#2159</a>. <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn3"  class="footnote-item"><p>Documentation is still in overhaul phase,
+<a href="https://github.com/MovingBlocks/Terasology/issues/1975">#1975</a>. <a href="#fnref3" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#terasologys-git-setup">Terasology's Git Setup</a></li><li><a href="#fetching-existing-modules">Fetching existing Modules</a></li><li><a href="#create-a-new-module">Create a new Module</a></li><li><a href="#dependency-resolution">Dependency Resolution</a></li><li><a href="#modding-api--sandboxing">Modding API &amp; Sandboxing</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>

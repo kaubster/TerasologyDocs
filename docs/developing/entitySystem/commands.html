@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>developing/entitySystem/commands · TerasologyDocs</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Commands"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="developing/entitySystem/commands · TerasologyDocs"/><meta property="og:type" content="website"/><meta property="og:url" content="https://kaubster.github.io/TerasologyDocs/"/><meta property="og:description" content="Commands"/><meta property="og:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://kaubster.github.io/TerasologyDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/TerasologyDocs/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://kaubster.github.io/TerasologyDocs/blog/atom.xml" title="TerasologyDocs Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://kaubster.github.io/TerasologyDocs/blog/feed.xml" title="TerasologyDocs Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/TerasologyDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/TerasologyDocs/css/main.css"/><script src="/TerasologyDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/TerasologyDocs/"><img class="logo" src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs"/><h2 class="headerTitleWithLogo">TerasologyDocs</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/TerasologyDocs/docs/doc1" target="_self">Docs</a></li><li class=""><a href="/TerasologyDocs/docs/doc4" target="_self">API</a></li><li class=""><a href="/TerasologyDocs/help" target="_self">Help</a></li><li class=""><a href="/TerasologyDocs/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">developing/entitySystem/commands</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="commands"></a><a href="#commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Commands</h1>
+<p>This is an article for developers who want to use and create their own
+console commands (for example for mods).</p>
+<p>Adding new console commands to Terasology is easy. The steps below show
+what is needed for console commands. Command implementation</p>
+<h2><a class="anchor" aria-hidden="true" id="command-structure"></a><a href="#command-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Command structure</h2>
+<p>Every command must be implemented as a public method of a
+:java<code>ComponentSystem &lt;org.terasology.entitySystem.system.ComponentSystem&gt;</code>{.interpreted-text
+role=&quot;ref&quot;}. <strong>E.g.</strong> the following command just displays &quot;hello
+world&quot; in the console.</p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-meta">@RegisterSystem</span>
+public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCommands</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseComponentSystem</span> </span>{
+
+    <span class="hljs-meta">@Command</span>( shortDescription = <span class="hljs-string">"Say hello"</span>, helpText = <span class="hljs-string">"Writes hello world to the console"</span> )
+    public <span class="hljs-type">String</span> hello() {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"hello world"</span>;
+    }
+
+}
+</code></pre>
+<p>Looking at this simple examples we can see several important things:</p>
+<ul>
+<li>The command method must be located in a class implementing
+:java<code>ComponentSystem &lt;org.terasology.entitySystem.system.ComponentSystem&gt;</code>{.interpreted-text
+role=&quot;ref&quot;}</li>
+<li>The command annotation
+:java<code>@Command&lt;org.terasology.logic.console.commandSystem.annotations.Command&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} is necessary for every command</li>
+<li>One can specify a short description and a (probably) longer help
+text</li>
+<li>A returned string will be shown in the console.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="annotation-and-command-name"></a><a href="#annotation-and-command-name" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Annotation and Command Name</h2>
+<p>To specify a new console command, just an <strong>annotated public method</strong> is
+needed in a
+:java<code>ComponentSystem &lt;org.terasology.entitySystem.system.ComponentSystem&gt;</code>{.interpreted-text
+role=&quot;ref&quot;}. The annotation is</p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-meta">@Command</span>
+</code></pre>
+<p>and marks the method as a command. The command will have the same name
+as the method, <strong>e.g.</strong> if you name you method <code>public void hello()</code> the
+command <code>hello</code> will be available in the game.</p>
+<h2><a class="anchor" aria-hidden="true" id="short-descriptions-and-help-text"></a><a href="#short-descriptions-and-help-text" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Short Descriptions and Help Text</h2>
+<p>Short descriptions and help texts can be added via the method
+annotation. To specify a short description, just add
+<code>shortDescription = &quot;text for short description&quot;</code> to the annotation,
+<strong>e.g.</strong></p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-meta">@Command( shortDescription = <span class="hljs-meta-string">"some command description"</span> )</span>
+</code></pre>
+<p>Probably longer help text can be specified via <code>helpText</code> in the
+annotaion. An example is given below:</p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-comment">@Command( helpText = "A command without short description, but with a longer help text." )</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="displaying-text"></a><a href="#displaying-text" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Displaying Text</h2>
+<p>Any value returned from the command (<code>String</code> or <code>Object</code>) will be
+displayed in the in game <code>console &lt;/playing/console&gt;</code>{.interpreted-text
+role=&quot;doc&quot;}.</p>
+<p>You can also write directly to the console via the
+:java<code>Console &lt;org.terasology.logic.console.Console&gt;</code>{.interpreted-text
+role=&quot;ref&quot;} class.</p>
+<h2><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h2>
+<p>Of course it is possible to give parameters/arguments to your command
+when executed in the command line. These arguments are specified as
+method arguments. It is highly recommended to prefix the method
+arguments by a parameter annotation, that is used for the command line
+help.</p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-variable">@Command</span>( shortDescription = <span class="hljs-string">"Echo-cho-cho-o-o"</span>, helpText = <span class="hljs-string">"Echoes the input text."</span> )
+public String echo(<span class="hljs-variable">@CommandParam</span>( value = <span class="hljs-string">"Message"</span> ) String message){
+    <span class="hljs-selector-tag">return</span> <span class="hljs-selector-tag">message</span>;
+}
+</code></pre>
+<p>The method above will add an <code>echo &lt;string&gt;</code> command that simply echoes
+the input text. The command is proper annotated, resulting in user
+friendly help messages and command description.</p>
+<p>::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>The supported types for command parameters are: <code>float</code>, <code>int</code>,
+<code>String</code>. The <code>final EntityRef</code> parameter is supported only when the
+commands are set to <code>runOnServer</code>. See
+<code>Commands and Multiplayer &lt;commands_multiplayer&gt;</code>{.interpreted-text
+role=&quot;ref&quot;}
+:::</p>
+<h2><a class="anchor" aria-hidden="true" id="commands-and-multiplayer"></a><a href="#commands-and-multiplayer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Commands and Multiplayer</h2>
+<p>By default, commands run locally - on the client side. A command can be
+marked as <code>runOnServer</code>, in which case it will be replicated to the
+server in a multiplayer game and executed there:</p>
+<pre><code class="hljs css language-{.java}">@<span class="hljs-constructor">Command(<span class="hljs-params">runOnServer</span> = <span class="hljs-params">true</span>)</span>
+</code></pre>
+<p>::: {#commands_multiplayer}
+::: {.note}
+::: {.title}
+Note
+:::</p>
+<p>In such a case, the command method can have a <code>final EntityRef</code>
+parameter. This will be populated with the Client entity of the calling
+player.</p>
+<pre><code class="hljs css language-{.java}"><span class="hljs-variable">@Command</span>(shortDescription = <span class="hljs-string">"Sends a message to all other players"</span>, runOnServer = true)
+public void say(<span class="hljs-variable">@CommandParam</span>(<span class="hljs-string">"message"</span>) String message, EntityRef speaker) {
+}
+</code></pre>
+<p>:::
+:::</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#command-structure">Command structure</a></li><li><a href="#annotation-and-command-name">Annotation and Command Name</a></li><li><a href="#short-descriptions-and-help-text">Short Descriptions and Help Text</a></li><li><a href="#displaying-text">Displaying Text</a></li><li><a href="#parameters">Parameters</a></li><li><a href="#commands-and-multiplayer">Commands and Multiplayer</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/TerasologyDocs/" class="nav-home"><img src="/TerasologyDocs/img/favicon.ico" alt="TerasologyDocs" width="66" height="58"/></a><div><h5>Docs</h5><a href="/TerasologyDocs/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/TerasologyDocs/docs/en/doc2.html">Guides (or other categories)</a><a href="/TerasologyDocs/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/TerasologyDocs/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/TerasologyDocs/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/TerasologyDocs/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Licensed under Apache 2.0</section></footer></div></body></html>
