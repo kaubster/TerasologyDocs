@@ -1,4 +1,5 @@
-build/
+website/node_modules
+website/build/
 .project
 
 *.DS_Store
